@@ -53,7 +53,7 @@ summary(modnew1)
 
 # using all the attemp to fit a model
 
-modnew2 <- lm(salary ~ fga+three_pa+fta+two_pa+pps,data = nba)
+modnew2 <- lm(salary ~ fga+three_pa+fta+two_pa,data = nba)
 
 nba <- mutate(nba, predicted2= predict(modnew2, nba))
 
@@ -97,7 +97,7 @@ ggplot(data = nba)+
   geom_path(x = seq(from = 0, to = 40000000, length = nrow(nba),color="red"), y = seq(from = 0, to = 40000000, length = nrow(nba)),color="red")
 summary(modnew5)
 # ftm+fta+pps
-
+  
 modnew6 <- lm(salary ~ fgm+fga+pps, data = nba)
 
 nba <- mutate(nba, predicted6= predict(modnew6, nba))
@@ -188,9 +188,9 @@ summary(modnew3modify4)
 
 #--------------------------------------------------------------------------------------------------------
 # according to the box plot we can see that most of nba players' salary are drop in the zone of 2400000 and 13000000
-'nba2 <- read.csv("d:/NBA_stats2.csv")
+nba2 <- read.csv("d:/NBA_stats2.csv")
 
-nba2 <- nba[nba$salary>2400000 & nba<14000000,]
+
 
 nba2 <- mutate(nba2, fgr= (fgm/fga))
 nba2 <- mutate(nba2, three_pr= (three_pm/three_pa))
@@ -207,6 +207,6 @@ summary(modnew3modify3)
 
 ggplot(data = newdata2)+
   geom_point(mapping = aes(x = salary, y = predicted11))+
-  geom_path(x = seq(from = 0, to = 14000000, length = nrow(newdata2), color = "red"), y = seq(from = 0, to = 14000000, length = nrow(newdata2)), color = "red")
-'''''''''''''''''''''''''''''''''
+  geom_path(x = seq(from = 0, to = 13000000, length = nrow(newdata2), color = "red"), y = seq(from = 0, to = 13000000, length = nrow(newdata2)), color = "red")
+
 # #-----------------------------------------------------------------------------------------------------
